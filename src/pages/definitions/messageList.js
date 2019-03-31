@@ -1,6 +1,6 @@
 module.exports = {
   name: 'Message List',
   elements: {
-    postListContent: '#postListContent',
+    postListContent: {selector: '#postListContent', isShowing: true},
   },
 }

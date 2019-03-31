@@ -11,6 +11,10 @@ module.exports = function(_browser, user) {
       },
     })
 
-    return {MMAUTHTOKEN: response.headers.token, MMUSERID: response.data.id}
+    return {
+      authToken: response.headers.token,
+      userId: response.data.id,
+      cookies: response.headers['set-cookie'],
+    }
   })
 }
