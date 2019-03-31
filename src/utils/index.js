@@ -67,16 +67,16 @@ function waitUntilNotShowing(b, page, timeout = 10000, interval = 2000) {
   }
 }
 
-function getTokenAndId(b) {
-  const cookies = b.getCookies(['MMAUTHTOKEN', 'MMUSERID'])
+function getMMCookies(b) {
+  const cookies = b.getCookies(['MMAUTHTOKEN', 'MMUSERID', 'MMCSRF'])
 
-  let tokenAndId = {}
+  let cookiesObject = {}
 
   cookies.forEach(cookie => {
-    tokenAndId[cookie.name] = cookie.value
+    cookiesObject[cookie.name] = cookie.value
   })
 
-  return tokenAndId
+  return cookiesObject
 }
 
 module.exports = {
@@ -84,5 +84,5 @@ module.exports = {
   waitUntilShowing,
   waitUntilNotShowing,
   isShowing,
-  getTokenAndId,
+  getMMCookies,
 }
